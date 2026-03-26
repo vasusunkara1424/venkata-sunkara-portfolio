@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Venkata | Space Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-[#0d1b2a] text-white relative overflow-x-hidden">
+
+  <!-- snow Background -->
+  <canvas id="stars"></canvas>
+  
+
+  <!-- Header -->
+  <header class="glass sticky top-0 z-40 border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-[#00f5d4] tracking-widest">VENKATA SUNKARA
+      <nav class="space-x-6 text-sm md:text-base">
+        <a href="#about" class="hover:text-[#ef233c]">About</a>
+        <a href="#skills" class="hover:text-[#ef233c]">Skills</a>
+        <a href="#projects" class="hover:text-[#ef233c]">Projects</a>
+        <a href="#contact" class="hover:text-[#ef233c]">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="min-h-screen flex flex-col justify-center items-center text-center px-6 relative z-10">
+    <div class="glow-ring mb-6">
+      <img src="https://i.postimg.cc/6qh1LgzD/DSC06119.jpg" alt="Profile" class="w-40 h-40 rounded-full object-cover" />
+    </div>
+    <h2 id="typed-output" class="text-4xl md:text-5xl font-bold text-white h-20 mb-4"></h2>
+    <p class="text-lg text-[#bfc9d9] max-w-xl animate-fadeInUp">
+      Front-End Developer with a passion for cosmic UI experiences and 1 year of practical expertise in React, Tailwind CSS, and animations.
+    </p>
+    <a href="#projects" class="mt-6 bg-[#ef233c] text-black px-6 py-3 rounded-full hover:bg-[#d90429] transition animate-fadeInUp">Explore Projects</a>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="py-20 px-6 glass text-center animate-fadeInUp">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-4xl font-bold mb-4">About Me</h2>
+      <p class="text-lg text-[#dce3ec]">I'm a front-end developer who builds interactive, scalable, and stylish websites. I combine creativity and code to deliver futuristic digital experiences — just like this one!</p>
+    </div>
+  </section>
+
+  <!--m 
+  <section id="skills" class="py-20 px-6 bg-[#1b263b]/50 backdrop-blur text-center animate-fadeInUp">
+    <h2 class="text-4xl font-bold mb-6">Skills</h2>
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+      <div class="glass p-4 rounded shadow flex flex-col items-center skill-icon" tabindex="0" title="HTML5">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="w-12 h-12 mb-2" alt="HTML5" />
+        HTML5
+      </div>
+      <div class="glass p-4 rounded shadow flex flex-col items-center skill-icon" tabindex="0" title="CSS3">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" class="w-12 h-12 mb-2" alt="CSS3" />
+        CSS3
+      </div>
+      <div class="glass p-4 rounded shadow flex flex-col items-center skill-icon" tabindex="0" title="JavaScript">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="w-12 h-12 mb-2" alt="JavaScript" />
+        JavaScript
+      </div>
+      <div class="glass p-4 rounded shadow flex flex-col items-center skill-icon" tabindex="0" title="React">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" class="w-12 h-12 mb-2" alt="React" />
+        React
+      </div>
+      <div class="glass p-4 rounded shadow flex flex-col items-center skill-icon" tabindex="0" title="Tailwind CSS">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" class="w-12 h-12 mb-2" alt="Tailwind" />
+        Tailwind CSS
+      </div>
+      <div class="glass p-4 rounded shadow flex flex-col items-center skill-icon" tabindex="0" title="Git & GitHub">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" class="w-12 h-12 mb-2" alt="Git" />
+        Git & GitHub
+      </div>
+      <div class="glass p-4 rounded shadow flex flex-col items-center skill-icon" tabindex="0" title="Java">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" class="w-12 h-12 mb-2" alt="Java" />
+        Java
+      </div>
+      <div class="glass p-4 rounded shadow flex flex-col items-center skill-icon" tabindex="0" title="Figma">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" class="w-12 h-12 mb-2" alt="Figma" />
+        Figma
+      </div>
+      <div class="glass p-4 rounded shadow flex flex-col items-center skill-icon" tabindex="0" title="Bootstrap">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" class="w-12 h-12 mb-2" alt="Bootstrap" />
+        Bootstrap
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="py-20 px-6 glass text-center animate-fadeInUp">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-4xl font-bold mb-6">Projects</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-[#1e1e2f] p-4 rounded shadow">
+          <h3 class="text-xl font-semibold mb-2">Portfolio Website</h3>
+          <p class="mt-2 text-[#cfd8dc] mb-4">A sleek and animated portfolio using Tailwind CSS and canvas stars background for a galactic vibe.</p>
+          <!-- Dragon Cursor mini project preview -->
+          <p class="mb-4">Includes a cool animated dragon cursor.</p>
+        </div>
+        <div class="bg-[#1e1e2f] p-4 rounded shadow">
+          <h3 class="text-xl font-semibold mb-2">Weather App</h3>
+          <p class="mt-2 text-[#cfd8dc] mb-4">Real-time weather updates with OpenWeather API, styled with responsive and clean UI.</p>
+        </div>
+        <div class="bg-[#1e1e2f] p-4 rounded shadow md:col-span-2">
+          <h3 class="text-xl font-semibold mb-2">Age Calculator</h3>
+          <p class="mt-2 text-[#cfd8dc] mb-4">Calculate your age from your birth date in a clean interactive UI.</p>
+          <form id="ageCalculatorForm" class="flex flex-col sm:flex-row gap-3 justify-center items-center">
+            <input type="date" id="dob" required class="p-2 rounded bg-[#0d1b2a] border border-[#8d99ae] text-white w-60" />
+            <button type="submit" class="bg-[#ef233c] text-black font-semibold px-4 py-2 rounded hover:bg-[#d90429] transition">Calculate Age</button>
+          </form>
+          <p id="ageResult" class="mt-4 text-[#00f5d4] font-semibold"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-20 px-6 bg-[#1b263b]/50 backdrop-blur text-center animate-fadeInUp">
+    <h2 class="text-4xl font-bold mb-6">Get in Touch</h2>
+    <p class="max-w-xl mx-auto mb-6 text-[#dce3ec]">Feel free to reach out for collaborations or just a friendly chat!</p>
+    <a href="mailto:venkatasunkara@example.com" class="bg-[#ef233c] text-black px-6 py-3 rounded-full hover:bg-[#d90429] transition">Say Hello</a>
+  </section>
+
+  <!-- Dragon Cursor -->
+  <canvas id="dragonCursor" class="fixed top-0 left-0 pointer-events-none z-50"></canvas>
+
+  
+ 
+  <script src="script.js"></script>
+</body>
+</html>
