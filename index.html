@@ -3,496 +3,581 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Venkata Srinivas Sunkara — Data & AI Developer</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
+<title>DataMind AI — Instant Data Intelligence</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-:root{
-  --bg:#060608;--s1:#0e0e12;--s2:#13131a;
-  --border:#1e1e28;--border2:#2a2a38;
-  --accent:#b9ff66;--accent2:#66ffda;
-  --text:#f2f2f5;--muted:#5a5a72;--muted2:#3a3a52;
-  --fh:'Syne',sans-serif;--fb:'DM Sans',sans-serif;
-}
-body{background:var(--bg);color:var(--text);font-family:var(--fb);font-size:16px;line-height:1.6;overflow-x:hidden}
-a{text-decoration:none;color:inherit}
+  @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600;700&display=swap');
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1rem 3rem;background:rgba(6,6,8,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
-.nav-logo{font-family:var(--fh);font-weight:800;font-size:1rem;color:var(--accent);display:flex;align-items:center;gap:0.5rem}
-.ndot{width:8px;height:8px;border-radius:50%;background:var(--accent);animation:blink 2s ease-in-out infinite}
-@keyframes blink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.3;transform:scale(0.6)}}
-.nav-links{display:flex;gap:2rem;list-style:none}
-.nav-links a{font-size:0.8rem;color:var(--muted);font-weight:500;letter-spacing:0.04em;transition:color .2s}
-.nav-links a:hover{color:var(--text)}
-.nbtn{font-size:0.75rem;font-weight:700;letter-spacing:0.04em;color:var(--bg);background:var(--accent);padding:0.5rem 1.2rem;border-radius:2rem;transition:opacity .2s,transform .2s}
-.nbtn:hover{opacity:0.85;transform:translateY(-1px)}
+  :root {
+    --bg: #0a0d14;
+    --surface: #111520;
+    --card: #161c2e;
+    --border: #1f2a42;
+    --accent: #00e5ff;
+    --accent2: #7c3aed;
+    --accent3: #f59e0b;
+    --text: #e8edf8;
+    --muted: #6b7a9d;
+    --success: #10b981;
+    --danger: #ef4444;
+  }
 
-/* HERO */
-#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:8rem 3rem 4rem;position:relative;overflow:hidden}
-.hcanvas{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 80% 60% at 60% 40%,rgba(185,255,102,0.05) 0%,transparent 60%),radial-gradient(ellipse 50% 40% at 80% 80%,rgba(102,255,218,0.04) 0%,transparent 50%)}
-.hdots{position:absolute;inset:0;z-index:0;background-image:radial-gradient(circle,rgba(185,255,102,0.07) 1px,transparent 1px);background-size:40px 40px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 30%,transparent 100%)}
-.hcontent{position:relative;z-index:1;max-width:900px}
-.hpill{display:inline-flex;align-items:center;gap:0.6rem;background:var(--s2);border:1px solid var(--border2);padding:0.4rem 1rem;border-radius:2rem;font-size:0.72rem;color:var(--accent);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:2rem}
-.pdot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:blink 1.5s ease-in-out infinite}
-h1{font-family:var(--fh);font-size:clamp(3.5rem,8vw,7rem);font-weight:800;line-height:0.95;letter-spacing:-0.04em;margin-bottom:2rem}
-.l2{color:transparent;-webkit-text-stroke:1px rgba(185,255,102,0.4)}
-.ac{color:var(--accent)}
-.hdesc{font-size:1.05rem;color:var(--muted);max-width:520px;margin-bottom:3rem;font-weight:300;line-height:1.8}
-.hbtns{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:4rem}
-.bfill{background:var(--accent);color:var(--bg);padding:0.85rem 2rem;border-radius:2rem;font-weight:700;font-size:0.875rem;transition:transform .2s,box-shadow .2s;display:inline-flex;align-items:center;gap:0.5rem}
-.bfill:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(185,255,102,0.2)}
-.bghost{border:1px solid var(--border2);color:var(--text);padding:0.85rem 2rem;border-radius:2rem;font-weight:500;font-size:0.875rem;transition:border-color .2s,background .2s}
-.bghost:hover{border-color:var(--accent);background:rgba(185,255,102,0.04)}
-.hmetrics{display:flex;gap:0;border:1px solid var(--border);border-radius:14px;overflow:hidden;background:var(--s1);max-width:520px}
-.hm{flex:1;padding:1.4rem;border-right:1px solid var(--border);text-align:center}
-.hm:last-child{border-right:none}
-.hmn{font-family:var(--fh);font-size:1.8rem;font-weight:800;color:var(--accent);display:block}
-.hml{font-size:0.72rem;color:var(--muted);margin-top:0.15rem}
-.hscroll{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:0.5rem;color:var(--muted);font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;z-index:1}
-.sline{width:1px;height:36px;background:linear-gradient(to bottom,var(--accent),transparent);animation:sp 2s ease-in-out infinite}
-@keyframes sp{0%,100%{opacity:0.3}50%{opacity:1}}
+  * { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* MARQUEE */
-.mwrap{overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--s1);padding:0.9rem 0}
-.mtrack{display:flex;gap:0;width:max-content;animation:mq 30s linear infinite}
-@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.mi{display:flex;align-items:center;gap:0.8rem;padding:0 2.5rem;font-family:var(--fh);font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
-.mi .dot{color:var(--accent);font-size:1rem}
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
 
-/* SECTIONS */
-section{padding:6rem 3rem}
-.snum{font-size:0.65rem;font-weight:700;letter-spacing:0.18em;color:var(--muted2);text-transform:uppercase;margin-bottom:0.4rem;font-family:var(--fh)}
-.slbl{font-size:0.7rem;font-weight:700;letter-spacing:0.12em;color:var(--accent);text-transform:uppercase;display:flex;align-items:center;gap:0.6rem;margin-bottom:1rem}
-.slbl::before{content:'';display:block;width:18px;height:1px;background:var(--accent)}
-h2{font-family:var(--fh);font-size:clamp(2rem,4.5vw,3.2rem);font-weight:800;line-height:1.05;letter-spacing:-0.025em;margin-bottom:1rem}
-h2 .hl{color:var(--accent)}
-.sdesc{color:var(--muted);max-width:500px;font-size:0.9rem;line-height:1.8;margin-bottom:3rem}
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease}
-.reveal.on{opacity:1;transform:translateY(0)}
-.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
+  /* BACKGROUND GRID */
+  body::before {
+    content: '';
+    position: fixed; inset: 0; z-index: 0;
+    background-image:
+      linear-gradient(rgba(0,229,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,229,255,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+  }
 
-/* ABOUT */
-#about{background:var(--s1)}
-.alay{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
-.aleft p{color:var(--muted);line-height:1.9;margin-bottom:1.2rem;font-size:0.95rem}
-.astats{display:flex;gap:2rem;margin-top:2rem;padding-top:2rem;border-top:1px solid var(--border)}
-.asn{font-family:var(--fh);font-size:1.8rem;font-weight:800;color:var(--accent)}
-.asl{font-size:0.75rem;color:var(--muted)}
-.aright{display:flex;flex-direction:column;gap:1rem}
-.acard{background:var(--s2);border:1px solid var(--border);border-radius:12px;padding:1.4rem;display:flex;gap:1rem;align-items:flex-start;transition:border-color .25s,transform .25s}
-.acard:hover{border-color:var(--accent);transform:translateX(5px)}
-.acico{width:42px;height:42px;border-radius:9px;flex-shrink:0;background:rgba(185,255,102,0.08);display:flex;align-items:center;justify-content:center;font-size:1.2rem}
-.acbody h4{font-family:var(--fh);font-size:0.9rem;font-weight:700;margin-bottom:0.3rem}
-.acbody p{color:var(--muted);font-size:0.8rem;line-height:1.6;margin:0}
+  .app { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; padding: 20px; }
 
-/* SKILLS */
-#skills{background:var(--bg)}
-.skgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
-.skcard{background:var(--s1);border:1px solid var(--border);border-radius:12px;padding:1.6rem;transition:border-color .25s,transform .25s}
-.skcard:hover{border-color:var(--accent);transform:translateY(-4px)}
-.skhd{display:flex;align-items:center;gap:0.7rem;margin-bottom:1.2rem}
-.skich{font-size:1.3rem}
-.skhd h4{font-family:var(--fh);font-size:0.85rem;font-weight:700;color:var(--accent);letter-spacing:0.06em;text-transform:uppercase}
-.tags{display:flex;flex-wrap:wrap;gap:0.45rem}
-.tag{background:var(--s2);border:1px solid var(--border2);color:var(--text);padding:0.28rem 0.72rem;border-radius:2rem;font-size:0.77rem;transition:border-color .2s,color .2s}
-.tag:hover{border-color:var(--accent);color:var(--accent)}
+  /* HEADER */
+  header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 28px;
+    background: rgba(17,21,32,0.9);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    margin-bottom: 24px;
+    backdrop-filter: blur(12px);
+  }
+  .logo {
+    font-family: 'Space Mono', monospace;
+    font-size: 1.25rem; font-weight: 700;
+    color: var(--accent);
+    letter-spacing: -0.5px;
+  }
+  .logo span { color: var(--text); }
+  .status-dot {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 0.78rem; color: var(--muted);
+  }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--success); animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
 
-/* PROJECTS */
-#projects{background:var(--s1)}
-.pgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
-.pcard{background:var(--s2);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:border-color .3s,transform .3s}
-.pcard:hover{border-color:var(--accent);transform:translateY(-6px)}
-.pthumb{height:200px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.ptbg{position:absolute;inset:0;background:linear-gradient(135deg,#0e0e18,#1a1a2e)}
-.ptgrid{position:absolute;inset:0;background-image:linear-gradient(rgba(185,255,102,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(185,255,102,0.04) 1px,transparent 1px);background-size:28px 28px}
-.ptico{position:relative;font-size:3.5rem;z-index:1;filter:drop-shadow(0 0 20px rgba(185,255,102,0.25))}
-.plive{position:absolute;top:1rem;right:1rem;z-index:2;background:var(--accent);color:var(--bg);font-size:0.62rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:0.28rem 0.75rem;border-radius:2rem}
-.pbody{padding:1.8rem}
-.pbody h3{font-family:var(--fh);font-size:1.25rem;font-weight:700;margin-bottom:0.6rem}
-.pbody p{color:var(--muted);font-size:0.875rem;line-height:1.7;margin-bottom:1.2rem}
-.ptags{display:flex;flex-wrap:wrap;gap:0.38rem;margin-bottom:1.3rem}
-.ptag{background:rgba(185,255,102,0.07);color:var(--accent);border:1px solid rgba(185,255,102,0.15);padding:0.2rem 0.68rem;border-radius:2rem;font-size:0.7rem;font-weight:500}
-.pmets{display:flex;gap:1.5rem;padding-top:1.2rem;border-top:1px solid var(--border);margin-bottom:1.4rem}
-.pmn{font-family:var(--fh);font-size:1.15rem;font-weight:800;color:var(--accent);display:block}
-.pml{font-size:0.7rem;color:var(--muted)}
-.plink{display:inline-flex;align-items:center;gap:0.5rem;color:var(--text);font-size:0.82rem;font-weight:500;border:1px solid var(--border2);padding:0.52rem 1.2rem;border-radius:2rem;transition:border-color .2s,color .2s}
-.plink:hover{border-color:var(--accent);color:var(--accent)}
-.arr{transition:transform .2s}
-.plink:hover .arr{transform:translateX(3px)}
+  /* TABS */
+  .tabs {
+    display: flex; gap: 6px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 5px;
+    margin-bottom: 20px;
+  }
+  .tab {
+    flex: 1; padding: 9px 14px; border-radius: 9px;
+    border: none; cursor: pointer; font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem; font-weight: 500; transition: all 0.2s;
+    background: transparent; color: var(--muted);
+  }
+  .tab.active { background: var(--accent2); color: #fff; }
+  .tab:hover:not(.active) { background: var(--border); color: var(--text); }
 
-/* TECH TICKER */
-#tech{padding:4rem 0;overflow:hidden;background:var(--bg)}
-.tlbl{text-align:center;margin-bottom:2rem;font-size:0.68rem;font-weight:700;letter-spacing:0.14em;color:var(--muted);text-transform:uppercase}
-.trow{display:flex;overflow:hidden;margin-bottom:0.9rem}
-.ttrack{display:flex;gap:0.9rem;width:max-content;animation:tk 25s linear infinite}
-.ttrack.rev{animation-direction:reverse;animation-duration:20s}
-@keyframes tk{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.tchip{display:flex;align-items:center;gap:0.55rem;background:var(--s1);border:1px solid var(--border);padding:0.55rem 1.1rem;border-radius:2rem;white-space:nowrap;font-size:0.78rem;font-weight:500;color:var(--muted);transition:border-color .2s,color .2s}
-.tchip:hover{border-color:var(--accent);color:var(--text)}
-.tchip span{font-size:0.95rem}
+  /* MAIN LAYOUT */
+  .main { display: grid; grid-template-columns: 320px 1fr; gap: 18px; }
+  @media(max-width:768px) { .main { grid-template-columns: 1fr; } }
 
-/* DATA GRID */
-#datagrid{background:var(--s1)}
-.gbox{background:var(--bg);border:1px solid var(--border);border-radius:14px;overflow:hidden}
-.ghdr{display:flex;align-items:center;justify-content:space-between;padding:1.1rem 1.5rem;border-bottom:1px solid var(--border);background:var(--s2)}
-.ghl{display:flex;align-items:center;gap:0.8rem}
-.gtitle{font-family:var(--fh);font-size:0.875rem;font-weight:700}
-.gcnt{background:rgba(185,255,102,0.1);color:var(--accent);border:1px solid rgba(185,255,102,0.2);font-size:0.68rem;font-weight:700;padding:0.14rem 0.6rem;border-radius:2rem}
-.gsearch{background:var(--s2);border:1px solid var(--border);color:var(--text);padding:0.42rem 1rem;border-radius:2rem;font-size:0.78rem;outline:none;width:210px;font-family:var(--fb);transition:border-color .2s}
-.gsearch:focus{border-color:var(--accent)}
-.gsearch::placeholder{color:var(--muted)}
-table{width:100%;border-collapse:collapse}
-thead th{text-align:left;padding:0.85rem 1.4rem;font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border);font-family:var(--fh)}
-tbody tr{border-bottom:1px solid var(--border);transition:background .15s}
-tbody tr:last-child{border-bottom:none}
-tbody tr:hover{background:var(--s2)}
-tbody td{padding:0.9rem 1.4rem;font-size:0.84rem}
-.badge{display:inline-flex;align-items:center;gap:0.3rem;padding:0.2rem 0.65rem;border-radius:2rem;font-size:0.7rem;font-weight:600}
-.badge::before{content:'';width:5px;height:5px;border-radius:50%}
-.bg{background:rgba(102,255,218,0.1);color:var(--accent2);border:1px solid rgba(102,255,218,0.2)}.bg::before{background:var(--accent2)}
-.by{background:rgba(185,255,102,0.1);color:var(--accent);border:1px solid rgba(185,255,102,0.2)}.by::before{background:var(--accent)}
-.bb{background:rgba(102,150,255,0.1);color:#7ab0ff;border:1px solid rgba(102,150,255,0.2)}.bb::before{background:#7ab0ff}
+  /* SIDEBAR */
+  .sidebar { display: flex; flex-direction: column; gap: 16px; }
 
-/* PROCESS */
-#process{background:var(--bg)}
-.psteps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative}
-.psteps::before{content:'';position:absolute;top:27px;left:10%;right:10%;height:1px;background:linear-gradient(to right,transparent,var(--border2),transparent);z-index:0}
-.step{text-align:center;padding:0 0.8rem;position:relative;z-index:1}
-.stepn{width:54px;height:54px;border-radius:50%;background:var(--s1);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-size:0.82rem;font-weight:800;color:var(--accent);margin:0 auto 1.3rem;transition:background .3s,border-color .3s}
-.step:hover .stepn{background:var(--accent);color:var(--bg);border-color:var(--accent)}
-.step h4{font-family:var(--fh);font-size:0.85rem;font-weight:700;margin-bottom:0.4rem}
-.step p{color:var(--muted);font-size:0.76rem;line-height:1.6}
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px;
+  }
+  .card-title {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 14px;
+  }
 
-/* FAQ */
-#faq{background:var(--s1)}
-.flay{display:grid;grid-template-columns:1fr 2fr;gap:5rem;align-items:start}
-.fleft p{color:var(--muted);font-size:0.9rem;line-height:1.75;margin-bottom:2rem}
-.flist{display:flex;flex-direction:column}
-.fi{border-bottom:1px solid var(--border);overflow:hidden}
-.fq{display:flex;align-items:center;justify-content:space-between;padding:1.3rem 0;cursor:pointer;gap:1rem;font-weight:500;font-size:0.925rem;transition:color .2s}
-.fq:hover{color:var(--accent)}
-.ficon{width:26px;height:26px;border-radius:50%;flex-shrink:0;border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:0.85rem;transition:background .2s,border-color .2s,transform .3s;color:var(--muted)}
-.fi.open .ficon{background:var(--accent);border-color:var(--accent);color:var(--bg);transform:rotate(45deg)}
-.fa{max-height:0;overflow:hidden;color:var(--muted);font-size:0.86rem;line-height:1.75;transition:max-height .4s ease,padding .4s ease}
-.fi.open .fa{max-height:200px;padding-bottom:1.3rem}
+  /* CSV UPLOAD */
+  .upload-zone {
+    border: 2px dashed var(--border);
+    border-radius: 10px; padding: 20px;
+    text-align: center; cursor: pointer;
+    transition: all 0.2s; color: var(--muted); font-size: 0.83rem;
+  }
+  .upload-zone:hover, .upload-zone.drag { border-color: var(--accent); color: var(--accent); }
+  .upload-zone .icon { font-size: 2rem; margin-bottom: 6px; }
+  #fileInput { display: none; }
 
-/* CTA */
-#cta{background:var(--bg);padding:6rem 3rem;text-align:center;position:relative;overflow:hidden}
-.cglow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(185,255,102,0.07) 0%,transparent 70%);pointer-events:none}
-.cin{position:relative;z-index:1;max-width:680px;margin:0 auto}
-.cin h2{font-size:clamp(2.2rem,5vw,3.8rem);margin-bottom:1rem}
-.cin p{color:var(--muted);font-size:0.975rem;margin-bottom:2.5rem;line-height:1.75}
-.cbtns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+  /* PRESET QUESTIONS */
+  .presets { display: flex; flex-direction: column; gap: 7px; }
+  .preset-btn {
+    text-align: left; padding: 9px 12px;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 8px; cursor: pointer; font-size: 0.8rem;
+    color: var(--text); transition: all 0.18s;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .preset-btn:hover { border-color: var(--accent); color: var(--accent); background: rgba(0,229,255,0.05); }
+  .preset-tag {
+    display: inline-block; font-size: 0.65rem; padding: 2px 6px;
+    border-radius: 4px; margin-right: 6px; font-weight: 600;
+  }
+  .tag-sales { background: rgba(16,185,129,0.2); color: var(--success); }
+  .tag-inv { background: rgba(245,158,11,0.2); color: var(--accent3); }
+  .tag-cust { background: rgba(124,58,237,0.2); color: #a78bfa; }
 
-/* CONTACT */
-#contact{background:var(--s1)}
-.colay{display:grid;grid-template-columns:1fr 1.2fr;gap:5rem}
-.coleft h3{font-family:var(--fh);font-size:1.4rem;font-weight:700;margin-bottom:1rem}
-.coleft p{color:var(--muted);line-height:1.8;margin-bottom:2rem;font-size:0.92rem}
-.ccards{display:flex;flex-direction:column;gap:0.8rem}
-.ccrd{display:flex;align-items:center;gap:1rem;background:var(--s2);border:1px solid var(--border);border-radius:10px;padding:0.95rem 1.2rem;transition:border-color .2s}
-.ccrd:hover{border-color:var(--accent)}
-.ccico{font-size:1.15rem;flex-shrink:0}
-.cclbl{font-size:0.68rem;color:var(--muted);display:block}
-.ccval{font-size:0.875rem;font-weight:500}
-.cform{display:flex;flex-direction:column;gap:1rem}
-.frow{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-.fg{display:flex;flex-direction:column;gap:0.38rem}
-.fg label{font-size:0.72rem;color:var(--muted);font-weight:500;letter-spacing:0.03em}
-.fg input,.fg textarea{background:var(--s2);border:1px solid var(--border);color:var(--text);padding:0.78rem 1rem;border-radius:8px;font-family:var(--fb);font-size:0.875rem;outline:none;transition:border-color .2s}
-.fg input:focus,.fg textarea:focus{border-color:var(--accent)}
-.fg input::placeholder,.fg textarea::placeholder{color:var(--muted)}
-.fg textarea{resize:vertical;min-height:115px}
-.bsend{align-self:flex-start;background:var(--accent);color:var(--bg);padding:0.82rem 2rem;border-radius:2rem;border:none;font-weight:700;font-size:0.875rem;cursor:pointer;font-family:var(--fb);transition:transform .2s,opacity .2s}
-.bsend:hover{transform:translateY(-2px);opacity:0.9}
+  /* MAIN AREA */
+  .query-area { display: flex; flex-direction: column; gap: 16px; }
 
-/* FOOTER */
-footer{background:var(--bg);padding:1.8rem 3rem;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;font-size:0.75rem;color:var(--muted)}
-.flogo{font-family:var(--fh);font-weight:800;color:var(--accent);font-size:0.95rem}
-.flinks{display:flex;gap:1.8rem}
-.flinks a{color:var(--muted);transition:color .2s}
-.flinks a:hover{color:var(--text)}
+  /* INPUT BAR */
+  .input-bar {
+    display: flex; gap: 10px; align-items: flex-end;
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 14px; padding: 14px;
+  }
+  .input-bar textarea {
+    flex: 1; background: transparent; border: none; outline: none;
+    color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 0.95rem;
+    resize: none; min-height: 44px; max-height: 120px;
+    line-height: 1.5;
+  }
+  .input-bar textarea::placeholder { color: var(--muted); }
+  .ask-btn {
+    padding: 10px 20px; border: none; border-radius: 9px;
+    background: linear-gradient(135deg, var(--accent2), var(--accent));
+    color: #fff; cursor: pointer; font-weight: 600; font-size: 0.88rem;
+    font-family: 'DM Sans', sans-serif; white-space: nowrap;
+    transition: opacity 0.2s;
+  }
+  .ask-btn:hover { opacity: 0.85; }
+  .ask-btn:disabled { opacity: 0.4; cursor: not-allowed; }
 
-/* RESPONSIVE */
-@media(max-width:900px){
-  nav{padding:1rem 1.5rem}.nav-links{display:none}
-  section{padding:4rem 1.5rem}
-  #hero{padding:6.5rem 1.5rem 3.5rem}
-  .alay,.colay,.flay{grid-template-columns:1fr;gap:2.5rem}
-  .skgrid{grid-template-columns:1fr 1fr}
-  .pgrid{grid-template-columns:1fr}
-  .psteps{grid-template-columns:1fr 1fr;gap:2rem}
-  .psteps::before{display:none}
-  .hmetrics{flex-direction:column;max-width:220px}
-  footer{flex-direction:column;gap:1rem;text-align:center}
-}
+  /* RESPONSE PANEL */
+  .response-panel { min-height: 340px; }
+
+  /* KPI GRID */
+  .kpi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 14px; }
+  @media(max-width:600px) { .kpi-grid { grid-template-columns: 1fr 1fr; } }
+  .kpi-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 13px 14px;
+  }
+  .kpi-label { font-size: 0.7rem; color: var(--muted); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 1px; }
+  .kpi-value { font-family: 'Space Mono', monospace; font-size: 1.25rem; font-weight: 700; color: var(--accent); }
+  .kpi-change { font-size: 0.72rem; color: var(--success); }
+  .kpi-change.neg { color: var(--danger); }
+
+  /* SUMMARY TEXT */
+  .summary-box {
+    background: var(--surface); border-left: 3px solid var(--accent);
+    border-radius: 0 10px 10px 0; padding: 14px 16px;
+    font-size: 0.9rem; line-height: 1.7; color: var(--text);
+    margin-bottom: 14px;
+  }
+
+  /* TABLE */
+  .table-wrap { overflow-x: auto; border-radius: 10px; border: 1px solid var(--border); }
+  table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+  th { background: var(--surface); padding: 10px 14px; text-align: left; font-family: 'Space Mono', monospace; font-size: 0.68rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--border); }
+  td { padding: 9px 14px; border-bottom: 1px solid rgba(31,42,66,0.6); }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: rgba(0,229,255,0.03); }
+
+  /* CHART */
+  .chart-wrap { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px; margin-top: 14px; }
+  canvas { max-height: 220px; }
+
+  /* LOADING */
+  .loading-state {
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: center; padding: 60px 20px; gap: 16px;
+  }
+  .spinner {
+    width: 40px; height: 40px; border: 3px solid var(--border);
+    border-top-color: var(--accent); border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .loading-text { font-size: 0.85rem; color: var(--muted); font-family: 'Space Mono', monospace; }
+
+  /* EMPTY STATE */
+  .empty-state {
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: center; padding: 60px 20px; text-align: center;
+    gap: 10px;
+  }
+  .empty-icon { font-size: 3rem; opacity: 0.4; }
+  .empty-title { font-size: 1rem; color: var(--muted); }
+  .empty-sub { font-size: 0.8rem; color: var(--muted); opacity: 0.7; }
+
+  /* DATA SOURCE BADGE */
+  .source-badges { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; }
+  .badge {
+    font-size: 0.7rem; padding: 4px 10px; border-radius: 20px;
+    font-weight: 600; letter-spacing: 0.5px;
+  }
+  .badge-active { background: rgba(0,229,255,0.12); border: 1px solid rgba(0,229,255,0.3); color: var(--accent); }
+  .badge-inactive { background: var(--surface); border: 1px solid var(--border); color: var(--muted); }
+
+  /* SAMPLE DATA INFO */
+  .data-info { font-size: 0.75rem; color: var(--muted); display: flex; align-items: center; gap: 6px; }
+  .data-info span { color: var(--accent3); font-weight: 600; }
+
+  /* FADE IN */
+  .fade-in { animation: fadeIn 0.4s ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 </style>
 </head>
 <body>
+<div class="app">
 
-<!-- NAV -->
-<nav>
-  <div class="nav-logo"><div class="ndot"></div>VSS</div>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#datagrid">Data Grid</a></li>
-    <li><a href="#faq">FAQ</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <a href="#contact" class="nbtn">Hire Me →</a>
-</nav>
-
-<!-- HERO -->
-<section id="hero">
-  <div class="hcanvas"></div>
-  <div class="hdots"></div>
-  <div class="hcontent">
-    <div class="hpill reveal"><div class="pdot"></div>Available · Atlanta, GA · Open to Work</div>
-    <h1 class="reveal d1">Venkata<br/><span class="l2">Srinivas</span><br/><span class="ac">Sunkara.</span></h1>
-    <p class="hdesc reveal d2">Data & AI Developer building intelligent systems — from scalable pipelines to production AI applications that create real outcomes.</p>
-    <div class="hbtns reveal d3">
-      <a href="#projects" class="bfill">View My Work ↓</a>
-      <a href="#contact" class="bghost">Let's Talk</a>
+  <header>
+    <div class="logo">Data<span>Mind</span> <span style="color:var(--muted);font-size:0.7rem">AI</span></div>
+    <div style="display:flex;gap:16px;align-items:center">
+      <div id="dataSourceBadges" class="source-badges" style="margin-bottom:0">
+        <span class="badge badge-active">📊 Sales</span>
+        <span class="badge badge-active">📦 Inventory</span>
+        <span class="badge badge-active">👥 Customers</span>
+        <span id="csvBadge" class="badge badge-inactive">📁 CSV</span>
+      </div>
+      <div class="status-dot"><div class="dot"></div> AI Ready</div>
     </div>
-    <div class="hmetrics reveal d4">
-      <div class="hm"><span class="hmn">2+</span><div class="hml">Years in Data & AI</div></div>
-      <div class="hm"><span class="hmn">5+</span><div class="hml">Projects Shipped</div></div>
-      <div class="hm"><span class="hmn">2</span><div class="hml">Live AI Products</div></div>
+  </header>
+
+  <div class="main">
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+      <!-- Upload CSV -->
+      <div class="card">
+        <div class="card-title">Upload Data</div>
+        <div class="upload-zone" id="uploadZone" onclick="document.getElementById('fileInput').click()"
+             ondragover="event.preventDefault();this.classList.add('drag')"
+             ondragleave="this.classList.remove('drag')"
+             ondrop="handleDrop(event)">
+          <div class="icon">📂</div>
+          <div id="uploadLabel">Drop CSV or click to upload</div>
+          <div style="font-size:0.72rem;margin-top:4px;opacity:0.6">Supports .csv files</div>
+        </div>
+        <input type="file" id="fileInput" accept=".csv" onchange="handleFileUpload(event)"/>
+      </div>
+
+      <!-- Preset Questions -->
+      <div class="card">
+        <div class="card-title">Quick Questions</div>
+        <div class="presets">
+          <button class="preset-btn" onclick="askPreset(this.dataset.q)" data-q="What are the total sales revenue and top 5 performing products?">
+            <span class="preset-tag tag-sales">SALES</span>Total revenue & top products
+          </button>
+          <button class="preset-btn" onclick="askPreset(this.dataset.q)" data-q="Show monthly sales trend and growth rate">
+            <span class="preset-tag tag-sales">SALES</span>Monthly trend & growth
+          </button>
+          <button class="preset-btn" onclick="askPreset(this.dataset.q)" data-q="Which inventory items are low stock or need reordering?">
+            <span class="preset-tag tag-inv">INV</span>Low stock alerts
+          </button>
+          <button class="preset-btn" onclick="askPreset(this.dataset.q)" data-q="What is the inventory turnover rate by category?">
+            <span class="preset-tag tag-inv">INV</span>Turnover by category
+          </button>
+          <button class="preset-btn" onclick="askPreset(this.dataset.q)" data-q="Who are the top 10 customers by purchase value and what is customer retention rate?">
+            <span class="preset-tag tag-cust">CUST</span>Top customers & retention
+          </button>
+          <button class="preset-btn" onclick="askPreset(this.dataset.q)" data-q="What is the average order value and customer lifetime value?">
+            <span class="preset-tag tag-cust">CUST</span>Order value & LTV
+          </button>
+          <button class="preset-btn" onclick="askPreset(this.dataset.q)" data-q="Give me a full business performance summary with all key KPIs">
+            📊 Full business summary
+          </button>
+        </div>
+      </div>
+
+      <!-- Data Info -->
+      <div class="card">
+        <div class="card-title">Active Dataset</div>
+        <div id="datasetInfo" style="font-size:0.8rem;color:var(--muted);line-height:1.7">
+          <div>📊 <span style="color:var(--text)">Sales:</span> 120 records</div>
+          <div>📦 <span style="color:var(--text)">Inventory:</span> 45 SKUs</div>
+          <div>👥 <span style="color:var(--text)">Customers:</span> 89 accounts</div>
+          <div id="csvInfo" style="display:none">📁 <span style="color:var(--accent)">CSV:</span> <span id="csvRows">-</span> rows</div>
+          <div style="margin-top:10px;padding-top:10px;border-top:1px solid var(--border);font-size:0.72rem">
+            ⚡ Sample dataset loaded. Upload CSV to add real data.
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- MAIN QUERY AREA -->
+    <div class="query-area">
+      <!-- Input -->
+      <div class="input-bar">
+        <textarea id="queryInput" placeholder="Ask anything about your data... e.g. 'What were sales last month?' or 'Which products are underperforming?'" rows="2"
+          onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();askAI()}"></textarea>
+        <button class="ask-btn" id="askBtn" onclick="askAI()">⚡ Ask AI</button>
+      </div>
+
+      <!-- Response Panel -->
+      <div class="card response-panel" id="responsePanel">
+        <div class="empty-state">
+          <div class="empty-icon">🤖</div>
+          <div class="empty-title">Ask your data anything</div>
+          <div class="empty-sub">Type a question above or click a preset<br/>AI will respond with KPIs, tables & charts</div>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="hscroll"><div class="sline"></div><span>Scroll</span></div>
-</section>
 
-<!-- MARQUEE -->
-<div class="mwrap">
-  <div class="mtrack">
-    <div class="mi"><span class="dot">✦</span>Data Engineering</div><div class="mi"><span class="dot">✦</span>Machine Learning</div><div class="mi"><span class="dot">✦</span>AI Development</div><div class="mi"><span class="dot">✦</span>Python · SQL · Azure</div><div class="mi"><span class="dot">✦</span>LLM Applications</div><div class="mi"><span class="dot">✦</span>Data Pipelines</div><div class="mi"><span class="dot">✦</span>Business Intelligence</div><div class="mi"><span class="dot">✦</span>Cloud Architecture</div>
-    <div class="mi"><span class="dot">✦</span>Data Engineering</div><div class="mi"><span class="dot">✦</span>Machine Learning</div><div class="mi"><span class="dot">✦</span>AI Development</div><div class="mi"><span class="dot">✦</span>Python · SQL · Azure</div><div class="mi"><span class="dot">✦</span>LLM Applications</div><div class="mi"><span class="dot">✦</span>Data Pipelines</div><div class="mi"><span class="dot">✦</span>Business Intelligence</div><div class="mi"><span class="dot">✦</span>Cloud Architecture</div>
-  </div>
 </div>
 
-<!-- ABOUT -->
-<section id="about">
-  <div class="alay">
-    <div class="aleft reveal">
-      <div class="snum">001</div>
-      <div class="slbl">Who I Am</div>
-      <h2>Building at the frontier of <span class="hl">Data & AI</span></h2>
-      <p>I'm Venkata Srinivas Sunkara — a Data & AI Developer based in Atlanta, GA. I specialize in turning complex, messy data into intelligent systems that create real business value.</p>
-      <p>From architecting scalable pipelines to deploying production-ready ML models and LLM-powered applications, I work across the full stack of modern data & AI engineering.</p>
-      <p>I believe the best AI systems are the ones people actually use — so I obsess over both the engineering underneath and the experience on top.</p>
-      <div class="astats">
-        <div><div class="asn">2+</div><div class="asl">Years Experience</div></div>
-        <div><div class="asn">5+</div><div class="asl">Projects Shipped</div></div>
-        <div><div class="asn">2</div><div class="asl">Live AI Apps</div></div>
-      </div>
-    </div>
-    <div class="aright">
-      <div class="acard reveal d1"><div class="acico">🧠</div><div class="acbody"><h4>AI & Machine Learning</h4><p>Building and deploying ML models that drive intelligent decision-making at scale — NLP, forecasting, anomaly detection.</p></div></div>
-      <div class="acard reveal d2"><div class="acico">⚙️</div><div class="acbody"><h4>Data Engineering</h4><p>Designing robust ETL pipelines, data warehouses, and streaming architectures that handle any volume reliably.</p></div></div>
-      <div class="acard reveal d3"><div class="acico">🚀</div><div class="acbody"><h4>Full-Stack AI Apps</h4><p>Shipping complete AI-powered applications from architecture to deployment — clean, fast, production-ready.</p></div></div>
-      <div class="acard reveal d4"><div class="acico">📊</div><div class="acbody"><h4>Analytics & BI</h4><p>Transforming raw data into actionable dashboards using Power BI, Tableau, and custom visualization tools.</p></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills">
-  <div class="snum reveal">002</div>
-  <div class="slbl reveal">Tech Stack</div>
-  <h2 class="reveal">My <span class="hl">Capabilities</span></h2>
-  <p class="sdesc reveal">Tools, languages, and frameworks I use to build data systems and AI applications from scratch to production.</p>
-  <div class="skgrid">
-    <div class="skcard reveal d1"><div class="skhd"><span class="skich">💻</span><h4>Languages</h4></div><div class="tags"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">JavaScript</span><span class="tag">R</span><span class="tag">Bash</span><span class="tag">TypeScript</span></div></div>
-    <div class="skcard reveal d2"><div class="skhd"><span class="skich">🤖</span><h4>AI / ML</h4></div><div class="tags"><span class="tag">TensorFlow</span><span class="tag">PyTorch</span><span class="tag">Scikit-learn</span><span class="tag">OpenAI API</span><span class="tag">LangChain</span><span class="tag">HuggingFace</span></div></div>
-    <div class="skcard reveal d3"><div class="skhd"><span class="skich">🔧</span><h4>Data Engineering</h4></div><div class="tags"><span class="tag">Apache Spark</span><span class="tag">Airflow</span><span class="tag">dbt</span><span class="tag">Kafka</span><span class="tag">PostgreSQL</span><span class="tag">MongoDB</span></div></div>
-    <div class="skcard reveal d1"><div class="skhd"><span class="skich">☁️</span><h4>Cloud & DevOps</h4></div><div class="tags"><span class="tag">Azure</span><span class="tag">AWS</span><span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">CI/CD</span><span class="tag">Git</span></div></div>
-    <div class="skcard reveal d2"><div class="skhd"><span class="skich">📈</span><h4>Visualization</h4></div><div class="tags"><span class="tag">Power BI</span><span class="tag">Tableau</span><span class="tag">Plotly</span><span class="tag">D3.js</span><span class="tag">Matplotlib</span></div></div>
-    <div class="skcard reveal d3"><div class="skhd"><span class="skich">⚡</span><h4>Frameworks</h4></div><div class="tags"><span class="tag">FastAPI</span><span class="tag">Flask</span><span class="tag">React</span><span class="tag">Next.js</span><span class="tag">Streamlit</span></div></div>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="snum reveal">003</div>
-  <div class="slbl reveal">Live Products</div>
-  <h2 class="reveal">What I've <span class="hl">Built</span></h2>
-  <p class="sdesc reveal">Real AI applications I've designed, built, and shipped to production.</p>
-  <div class="pgrid">
-    <div class="pcard reveal d1">
-      <div class="pthumb"><div class="ptbg"></div><div class="ptgrid"></div><div class="ptico">🧠</div><span class="plive">LIVE</span></div>
-      <div class="pbody">
-        <h3>DataMind AI</h3>
-        <p>An AI-powered data analysis platform that lets you query, visualize, and extract insights from any dataset using natural language — no SQL required.</p>
-        <div class="ptags"><span class="ptag">Python</span><span class="ptag">OpenAI</span><span class="ptag">FastAPI</span><span class="ptag">React</span><span class="ptag">PostgreSQL</span></div>
-        <div class="pmets"><div><span class="pmn">10x</span><div class="pml">Faster Analysis</div></div><div><span class="pmn">0</span><div class="pml">SQL Required</div></div><div><span class="pmn">∞</span><div class="pml">Data Sources</div></div></div>
-        <a href="#" class="plink">View Project <span class="arr">→</span></a>
-      </div>
-    </div>
-    <div class="pcard reveal d2">
-      <div class="pthumb"><div class="ptbg"></div><div class="ptgrid"></div><div class="ptico">🧹</div><span class="plive">LIVE</span></div>
-      <div class="pbody">
-        <h3>CleanAI</h3>
-        <p>An intelligent data cleaning tool that automatically detects and fixes inconsistencies, missing values, and anomalies in your datasets using machine learning.</p>
-        <div class="ptags"><span class="ptag">Python</span><span class="ptag">Scikit-learn</span><span class="ptag">Pandas</span><span class="ptag">Streamlit</span><span class="ptag">ML</span></div>
-        <div class="pmets"><div><span class="pmn">80%</span><div class="pml">Time Saved</div></div><div><span class="pmn">Auto</span><div class="pml">Anomaly Detection</div></div><div><span class="pmn">100%</span><div class="pml">No-Code</div></div></div>
-        <a href="#" class="plink">View Project <span class="arr">→</span></a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TECH TICKER -->
-<section id="tech" style="padding:4rem 0">
-  <div class="tlbl reveal">004 · Technology Ecosystem</div>
-  <div class="trow">
-    <div class="ttrack">
-      <div class="tchip"><span>🐍</span>Python</div><div class="tchip"><span>🔥</span>PyTorch</div><div class="tchip"><span>🤖</span>OpenAI</div><div class="tchip"><span>☁️</span>Azure</div><div class="tchip"><span>🗄️</span>PostgreSQL</div><div class="tchip"><span>⚡</span>Apache Spark</div><div class="tchip"><span>🔗</span>LangChain</div><div class="tchip"><span>📊</span>Power BI</div><div class="tchip"><span>🐋</span>Docker</div><div class="tchip"><span>🌊</span>Airflow</div>
-      <div class="tchip"><span>🐍</span>Python</div><div class="tchip"><span>🔥</span>PyTorch</div><div class="tchip"><span>🤖</span>OpenAI</div><div class="tchip"><span>☁️</span>Azure</div><div class="tchip"><span>🗄️</span>PostgreSQL</div><div class="tchip"><span>⚡</span>Apache Spark</div><div class="tchip"><span>🔗</span>LangChain</div><div class="tchip"><span>📊</span>Power BI</div><div class="tchip"><span>🐋</span>Docker</div><div class="tchip"><span>🌊</span>Airflow</div>
-    </div>
-  </div>
-  <div class="trow">
-    <div class="ttrack rev">
-      <div class="tchip"><span>🤗</span>HuggingFace</div><div class="tchip"><span>📦</span>dbt</div><div class="tchip"><span>⚛️</span>React</div><div class="tchip"><span>🔵</span>TypeScript</div><div class="tchip"><span>📈</span>Tableau</div><div class="tchip"><span>🌐</span>FastAPI</div><div class="tchip"><span>🔴</span>Kafka</div><div class="tchip"><span>🌿</span>MongoDB</div><div class="tchip"><span>☸️</span>Kubernetes</div><div class="tchip"><span>🐙</span>GitHub</div>
-      <div class="tchip"><span>🤗</span>HuggingFace</div><div class="tchip"><span>📦</span>dbt</div><div class="tchip"><span>⚛️</span>React</div><div class="tchip"><span>🔵</span>TypeScript</div><div class="tchip"><span>📈</span>Tableau</div><div class="tchip"><span>🌐</span>FastAPI</div><div class="tchip"><span>🔴</span>Kafka</div><div class="tchip"><span>🌿</span>MongoDB</div><div class="tchip"><span>☸️</span>Kubernetes</div><div class="tchip"><span>🐙</span>GitHub</div>
-    </div>
-  </div>
-</section>
-
-<!-- DATA GRID -->
-<section id="datagrid">
-  <div class="snum reveal">005</div>
-  <div class="slbl reveal">Project Log</div>
-  <h2 class="reveal">Project <span class="hl">Overview</span></h2>
-  <p class="sdesc reveal">A live view of my project activity, tech stack, and current status.</p>
-  <div class="gbox reveal">
-    <div class="ghdr">
-      <div class="ghl"><span class="gtitle">All Projects</span><span class="gcnt" id="rowCnt">5 entries</span></div>
-      <input class="gsearch" type="text" placeholder="Search projects..." oninput="filterGrid(this.value)"/>
-    </div>
-    <table>
-      <thead><tr><th>Project</th><th>Type</th><th>Stack</th><th>Status</th><th>Year</th></tr></thead>
-      <tbody id="gb">
-        <tr><td><strong>DataMind AI</strong></td><td>AI Application</td><td>Python, OpenAI, React</td><td><span class="badge bg">Live</span></td><td>2025</td></tr>
-        <tr><td><strong>CleanAI</strong></td><td>Data Tool</td><td>Python, ML, Streamlit</td><td><span class="badge bg">Live</span></td><td>2025</td></tr>
-        <tr><td><strong>Sales Dashboard</strong></td><td>Analytics</td><td>Power BI, SQL, Azure</td><td><span class="badge by">In Progress</span></td><td>2026</td></tr>
-        <tr><td><strong>ETL Pipeline</strong></td><td>Data Engineering</td><td>Airflow, Spark, dbt</td><td><span class="badge bb">Completed</span></td><td>2024</td></tr>
-        <tr><td><strong>NLP Classifier</strong></td><td>ML Model</td><td>PyTorch, HuggingFace</td><td><span class="badge bb">Completed</span></td><td>2024</td></tr>
-      </tbody>
-    </table>
-  </div>
-</section>
-
-<!-- PROCESS -->
-<section id="process">
-  <div class="snum reveal">006</div>
-  <div class="slbl reveal">How I Work</div>
-  <h2 class="reveal">My <span class="hl">Process</span></h2>
-  <p class="sdesc reveal">A structured approach to delivering high-quality data and AI solutions — every time.</p>
-  <div class="psteps">
-    <div class="step reveal d1"><div class="stepn">01</div><h4>Discovery</h4><p>Understand the problem, data sources, and business goals.</p></div>
-    <div class="step reveal d2"><div class="stepn">02</div><h4>Architecture</h4><p>Design the data and AI architecture aligned with requirements.</p></div>
-    <div class="step reveal d3"><div class="stepn">03</div><h4>Build</h4><p>Develop pipelines, models, and apps with clean, tested code.</p></div>
-    <div class="step reveal d4"><div class="stepn">04</div><h4>Validate</h4><p>Rigorous testing, data validation, and performance benchmarking.</p></div>
-    <div class="step reveal d4"><div class="stepn">05</div><h4>Deploy</h4><p>Launch, monitor, and iterate for continuous improvement.</p></div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section id="faq">
-  <div class="flay">
-    <div class="fleft reveal">
-      <div class="snum">007</div>
-      <div class="slbl">FAQ</div>
-      <h2>Common <span class="hl">Questions</span></h2>
-      <p>Things people usually ask before working together.</p>
-      <a href="#contact" class="bfill" style="display:inline-flex">Ask Me Anything →</a>
-    </div>
-    <div class="flist reveal d1">
-      <div class="fi"><div class="fq" onclick="toggleFaq(this)"><span>What kind of projects do you take on?</span><div class="ficon">+</div></div><div class="fa">I work on data engineering pipelines, ML models, AI-powered apps, analytics dashboards, and full-stack data products. If it involves data or AI, I'm interested.</div></div>
-      <div class="fi"><div class="fq" onclick="toggleFaq(this)"><span>Are you open to full-time roles?</span><div class="ficon">+</div></div><div class="fa">Yes — I'm actively exploring full-time Data & AI Developer roles in Atlanta, GA and remote. I'm also available for freelance and contract work.</div></div>
-      <div class="fi"><div class="fq" onclick="toggleFaq(this)"><span>How long does a typical project take?</span><div class="ficon">+</div></div><div class="fa">Simple dashboards or tools: 1–2 weeks. End-to-end ML pipelines or full AI applications: 3–8 weeks depending on complexity and data availability.</div></div>
-      <div class="fi"><div class="fq" onclick="toggleFaq(this)"><span>What industries have you worked in?</span><div class="ficon">+</div></div><div class="fa">Finance, retail, healthcare data, and SaaS products. Data and AI challenges transfer well across industries — the patterns are often universal.</div></div>
-      <div class="fi"><div class="fq" onclick="toggleFaq(this)"><span>Do you work with existing codebases?</span><div class="ficon">+</div></div><div class="fa">Absolutely. I'm comfortable auditing data architectures, refactoring ML pipelines, or extending AI features in an existing codebase.</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section id="cta">
-  <div class="cglow"></div>
-  <div class="cin reveal">
-    <div class="slbl" style="justify-content:center">008 · Let's Build</div>
-    <h2>Your Data Deserves<br/><span class="hl">Better Intelligence.</span></h2>
-    <p>Stop leaving insights on the table. Let's build AI-powered data systems that actually move the needle.</p>
-    <div class="cbtns">
-      <a href="#contact" class="bfill">Start a Conversation →</a>
-      <a href="https://github.com/vasusunkara1424" target="_blank" class="bghost">View GitHub</a>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="snum reveal">009</div>
-  <div class="slbl reveal">Contact</div>
-  <h2 class="reveal">Let's <span class="hl">Work Together</span></h2>
-  <div class="colay">
-    <div class="coleft reveal">
-      <h3>Have a project in mind?</h3>
-      <p>Whether you need a data pipeline, an AI application, or a full analytics solution — I'd love to hear about it. Drop me a message and I'll get back to you quickly.</p>
-      <div class="ccards">
-        <a href="mailto:venkata@example.com" class="ccrd"><span class="ccico">✉️</span><div><span class="cclbl">Email</span><span class="ccval">venkata@example.com</span></div></a>
-        <a href="https://linkedin.com/in/yourprofile" target="_blank" class="ccrd"><span class="ccico">💼</span><div><span class="cclbl">LinkedIn</span><span class="ccval">linkedin.com/in/yourprofile</span></div></a>
-        <a href="https://github.com/vasusunkara1424" target="_blank" class="ccrd"><span class="ccico">🐙</span><div><span class="cclbl">GitHub</span><span class="ccval">github.com/vasusunkara1424</span></div></a>
-      </div>
-    </div>
-    <form class="cform reveal d1" onsubmit="sendMsg(event)">
-      <div class="frow">
-        <div class="fg"><label>First Name</label><input type="text" placeholder="John"/></div>
-        <div class="fg"><label>Last Name</label><input type="text" placeholder="Doe"/></div>
-      </div>
-      <div class="fg"><label>Email</label><input type="email" placeholder="john@example.com"/></div>
-      <div class="fg"><label>Message</label><textarea placeholder="Tell me about your project or role..."></textarea></div>
-      <button type="submit" class="bsend">Send Message →</button>
-    </form>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="flogo">VSS</div>
-  <span>© 2026 Venkata Srinivas Sunkara · Atlanta, GA</span>
-  <div class="flinks">
-    <a href="#hero">Top ↑</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-    <a href="https://github.com/vasusunkara1424" target="_blank">GitHub</a>
-  </div>
-</footer>
-
 <script>
-const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('on')})},{threshold:0.1})
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el))
+// ===================== SAMPLE DATA =====================
+const SAMPLE_DATA = {
+  sales: [
+    { month: 'Jan', revenue: 42300, orders: 312, region: 'North' },
+    { month: 'Feb', revenue: 38900, orders: 287, region: 'North' },
+    { month: 'Mar', revenue: 51200, orders: 398, region: 'South' },
+    { month: 'Apr', revenue: 56800, orders: 421, region: 'East' },
+    { month: 'May', revenue: 61400, orders: 467, region: 'East' },
+    { month: 'Jun', revenue: 58700, orders: 443, region: 'West' },
+    { month: 'Jul', revenue: 67300, orders: 512, region: 'North' },
+    { month: 'Aug', revenue: 72100, orders: 549, region: 'South' },
+    { month: 'Sep', revenue: 65800, orders: 498, region: 'West' },
+    { month: 'Oct', revenue: 78400, orders: 601, region: 'East' },
+    { month: 'Nov', revenue: 89200, orders: 688, region: 'North' },
+    { month: 'Dec', revenue: 94500, orders: 721, region: 'South' },
+  ],
+  products: [
+    { name: 'Product A', sales: 28400, units: 890, category: 'Electronics' },
+    { name: 'Product B', sales: 22100, units: 1240, category: 'Apparel' },
+    { name: 'Product C', sales: 19800, units: 320, category: 'Electronics' },
+    { name: 'Product D', sales: 15600, units: 2100, category: 'Household' },
+    { name: 'Product E', sales: 13200, units: 670, category: 'Apparel' },
+    { name: 'Product F', sales: 9800, units: 450, category: 'Electronics' },
+  ],
+  inventory: [
+    { sku: 'SKU-001', name: 'Product A', stock: 42, reorder: 50, turnover: 8.2, category: 'Electronics' },
+    { sku: 'SKU-002', name: 'Product B', stock: 126, reorder: 100, turnover: 12.1, category: 'Apparel' },
+    { sku: 'SKU-003', name: 'Product C', stock: 18, reorder: 30, turnover: 3.4, category: 'Electronics' },
+    { sku: 'SKU-004', name: 'Product D', stock: 8, reorder: 40, turnover: 5.8, category: 'Household' },
+    { sku: 'SKU-005', name: 'Product E', stock: 95, reorder: 80, turnover: 9.7, category: 'Apparel' },
+    { sku: 'SKU-006', name: 'Product F', stock: 4, reorder: 20, turnover: 2.1, category: 'Electronics' },
+  ],
+  customers: [
+    { name: 'Acme Corp', orders: 48, total: 32400, since: '2022-01', region: 'North' },
+    { name: 'Globe Inc', orders: 39, total: 28700, since: '2021-06', region: 'East' },
+    { name: 'Apex Ltd', orders: 31, total: 21900, since: '2023-03', region: 'South' },
+    { name: 'Nova LLC', orders: 27, total: 18300, since: '2022-09', region: 'West' },
+    { name: 'Peak Co', orders: 24, total: 16100, since: '2023-01', region: 'North' },
+    { name: 'Stark Partners', orders: 19, total: 12800, since: '2021-12', region: 'East' },
+    { name: 'Blue Sky Ltd', orders: 16, total: 10400, since: '2024-02', region: 'South' },
+  ]
+};
 
-function filterGrid(v){
-  const rows=document.querySelectorAll('#gb tr');let c=0
-  rows.forEach(r=>{const s=r.textContent.toLowerCase().includes(v.toLowerCase());r.style.display=s?'':'none';if(s)c++})
-  document.getElementById('rowCnt').textContent=c+' entries'
+let uploadedCSV = null;
+let chartInstance = null;
+
+// ===================== FILE UPLOAD =====================
+function handleDrop(e) {
+  e.preventDefault();
+  document.getElementById('uploadZone').classList.remove('drag');
+  const file = e.dataTransfer.files[0];
+  if (file && file.name.endsWith('.csv')) processCSV(file);
 }
-function toggleFaq(el){
-  const item=el.parentElement,was=item.classList.contains('open')
-  document.querySelectorAll('.fi').forEach(i=>i.classList.remove('open'))
-  if(!was)item.classList.add('open')
+function handleFileUpload(e) {
+  const file = e.target.files[0];
+  if (file) processCSV(file);
 }
-function sendMsg(e){
-  e.preventDefault();const btn=e.target.querySelector('.bsend')
-  btn.textContent='Sent ✓';btn.style.background='var(--accent2)'
-  setTimeout(()=>{btn.textContent='Send Message →';btn.style.background='var(--accent)'},3000)
+function processCSV(file) {
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    const text = e.target.result;
+    const lines = text.trim().split('\n');
+    const headers = lines[0].split(',').map(h => h.trim());
+    const rows = lines.slice(1).map(l => {
+      const vals = l.split(',');
+      const obj = {};
+      headers.forEach((h, i) => obj[h] = vals[i]?.trim() || '');
+      return obj;
+    });
+    uploadedCSV = { headers, rows, filename: file.name };
+    document.getElementById('uploadLabel').textContent = `✅ ${file.name}`;
+    document.getElementById('csvBadge').className = 'badge badge-active';
+    document.getElementById('csvBadge').textContent = `📁 ${file.name}`;
+    document.getElementById('csvInfo').style.display = 'block';
+    document.getElementById('csvRows').textContent = rows.length;
+  };
+  reader.readAsText(file);
+}
+
+// ===================== PRESET =====================
+function askPreset(q) {
+  document.getElementById('queryInput').value = q;
+  askAI();
+}
+
+// ===================== MAIN AI CALL =====================
+async function askAI() {
+  const query = document.getElementById('queryInput').value.trim();
+  if (!query) return;
+
+  const btn = document.getElementById('askBtn');
+  btn.disabled = true;
+  btn.textContent = '⏳ Thinking...';
+
+  const panel = document.getElementById('responsePanel');
+  panel.innerHTML = `<div class="loading-state"><div class="spinner"></div><div class="loading-text">Analyzing your data...</div></div>`;
+
+  const dataContext = buildDataContext();
+
+  const systemPrompt = `You are DataMind AI, a business intelligence assistant. You analyze data and return ONLY valid JSON.
+
+Data available:
+${dataContext}
+
+${uploadedCSV ? `Uploaded CSV (${uploadedCSV.filename}):\nHeaders: ${uploadedCSV.headers.join(', ')}\nFirst 5 rows: ${JSON.stringify(uploadedCSV.rows.slice(0,5))}\nTotal rows: ${uploadedCSV.rows.length}` : ''}
+
+Return ONLY a JSON object with this exact structure (no markdown, no extra text):
+{
+  "kpis": [{"label":"...","value":"...","change":"...","positive":true}],
+  "summary": "2-3 sentence insight about the data",
+  "table": {"headers":["col1","col2"],"rows":[["val","val"]]},
+  "chart": {"type":"bar|line|doughnut","labels":["..."],"datasets":[{"label":"...","data":[0]}]},
+  "chartTitle": "..."
+}
+
+Rules:
+- kpis: 3-4 relevant KPIs always
+- summary: insightful business language
+- table: most relevant data (max 8 rows)
+- chart: best visualization for the question
+- Values should be realistic and specific to the query`;
+
+  try {
+    const response = await fetch("https://api.anthropic.com/v1/messages", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        model: "claude-sonnet-4-20250514",
+        max_tokens: 1000,
+        system: systemPrompt,
+        messages: [{ role: "user", content: query }]
+      })
+    });
+
+    const data = await response.json();
+    const text = data.content?.[0]?.text || '{}';
+    const clean = text.replace(/```json|```/g, '').trim();
+    const result = JSON.parse(clean);
+    renderResponse(result, query);
+  } catch (err) {
+    panel.innerHTML = `<div class="empty-state"><div class="empty-icon">⚠️</div><div class="empty-title">Could not get response</div><div class="empty-sub">${err.message}</div></div>`;
+  }
+
+  btn.disabled = false;
+  btn.textContent = '⚡ Ask AI';
+}
+
+function buildDataContext() {
+  const totalRevenue = SAMPLE_DATA.sales.reduce((s, r) => s + r.revenue, 0);
+  const totalOrders = SAMPLE_DATA.sales.reduce((s, r) => s + r.orders, 0);
+  const lowStock = SAMPLE_DATA.inventory.filter(i => i.stock < i.reorder);
+  const topCustomer = SAMPLE_DATA.customers[0];
+  return `
+Sales Summary: Total Revenue $${totalRevenue.toLocaleString()}, Total Orders ${totalOrders}, 12 months of data
+Monthly Sales: ${SAMPLE_DATA.sales.map(s => `${s.month}: $${s.revenue}`).join(', ')}
+Top Products: ${SAMPLE_DATA.products.map(p => `${p.name} ($${p.sales})`).join(', ')}
+Inventory: ${SAMPLE_DATA.inventory.length} SKUs, Low Stock: ${lowStock.map(i => i.name).join(', ')}
+Customers: ${SAMPLE_DATA.customers.length} accounts, Top: ${topCustomer.name} ($${topCustomer.total})
+Customer Orders Range: ${SAMPLE_DATA.customers[SAMPLE_DATA.customers.length-1].orders} to ${topCustomer.orders} orders
+  `.trim();
+}
+
+// ===================== RENDER RESPONSE =====================
+function renderResponse(result, query) {
+  const panel = document.getElementById('responsePanel');
+
+  let html = `<div class="fade-in">`;
+  html += `<div style="font-size:0.72rem;color:var(--muted);margin-bottom:14px;font-family:'Space Mono',monospace">▶ "${query}"</div>`;
+
+  // KPIs
+  if (result.kpis?.length) {
+    html += `<div class="kpi-grid">`;
+    result.kpis.forEach(k => {
+      html += `<div class="kpi-card">
+        <div class="kpi-label">${k.label}</div>
+        <div class="kpi-value">${k.value}</div>
+        ${k.change ? `<div class="kpi-change ${k.positive===false?'neg':''}">${k.change}</div>` : ''}
+      </div>`;
+    });
+    html += `</div>`;
+  }
+
+  // Summary
+  if (result.summary) {
+    html += `<div class="summary-box">${result.summary}</div>`;
+  }
+
+  // Table
+  if (result.table?.headers?.length) {
+    html += `<div class="table-wrap"><table><thead><tr>`;
+    result.table.headers.forEach(h => html += `<th>${h}</th>`);
+    html += `</tr></thead><tbody>`;
+    result.table.rows?.forEach(row => {
+      html += `<tr>`;
+      row.forEach(cell => html += `<td>${cell}</td>`);
+      html += `</tr>`;
+    });
+    html += `</tbody></table></div>`;
+  }
+
+  // Chart container
+  if (result.chart) {
+    html += `<div class="chart-wrap"><div style="font-size:0.75rem;color:var(--muted);margin-bottom:10px;font-family:'Space Mono',monospace">${result.chartTitle||'Chart'}</div><canvas id="responseChart"></canvas></div>`;
+  }
+
+  html += `</div>`;
+  panel.innerHTML = html;
+
+  // Render Chart
+  if (result.chart) {
+    if (chartInstance) chartInstance.destroy();
+    const ctx = document.getElementById('responseChart').getContext('2d');
+    const colors = ['#00e5ff','#7c3aed','#f59e0b','#10b981','#ef4444','#8b5cf6'];
+    const ds = result.chart.datasets.map((d, i) => ({
+      ...d,
+      backgroundColor: result.chart.type === 'line'
+        ? colors[i % colors.length] + '22'
+        : result.chart.type === 'doughnut'
+          ? colors
+          : colors[i % colors.length] + 'cc',
+      borderColor: colors[i % colors.length],
+      borderWidth: 2,
+      tension: 0.4,
+      fill: result.chart.type === 'line',
+      pointBackgroundColor: colors[i % colors.length],
+    }));
+    chartInstance = new Chart(ctx, {
+      type: result.chart.type || 'bar',
+      data: { labels: result.chart.labels, datasets: ds },
+      options: {
+        responsive: true, maintainAspectRatio: true,
+        plugins: { legend: { labels: { color: '#6b7a9d', font: { family: 'DM Sans' } } } },
+        scales: result.chart.type === 'doughnut' ? {} : {
+          x: { ticks: { color: '#6b7a9d' }, grid: { color: '#1f2a42' } },
+          y: { ticks: { color: '#6b7a9d' }, grid: { color: '#1f2a42' } }
+        }
+      }
+    });
+  }
 }
 </script>
 </body>
